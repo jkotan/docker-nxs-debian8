@@ -21,7 +21,8 @@ RUN /bin/bash -c 'export DEBIAN_FRONTEND=noninteractive; debconf-set-selections 
 RUN /bin/bash -c 'export DEBIAN_FRONTEND=noninteractive; debconf-set-selections <<< "nxsconfigserver-db nxsconfigserver-db/mysql/admin-pass password rootpw"'
 RUN /bin/bash -c 'export DEBIAN_FRONTEND=noninteractive; debconf-set-selections <<< "nxsconfigserver-db nxsconfigserver-db/app-password-confirm password rootpw"'
 RUN /bin/bash -c 'export DEBIAN_FRONTEND=noninteractive; debconf-set-selections <<< "nxsconfigserver-db nxsconfigserver-db/db/app-user string tango"'
-RUN apt-get -qq update && apt-get -qq install libtango-tools zlib1g python-tz python-six python-numpy
+# RUN apt-get -qq update && apt-get -qq install libtango-tools zlib1g python-tz python-six python-numpy
+RUN apt-get -qq update && apt-get -qq install zlib1g python-tz python-six python-numpy
 
 ENV PKG_CONFIG_PATH=/home/tango/lib/pkgconfig
 USER tango
